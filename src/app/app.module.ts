@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { ExperiencesComponent } from './admin/experiences/experiences.component';
+import { ExperienceFormComponent } from './admin/experiences/experience-form/experience-form.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAEQaCCLB1ll1CqMqadx303v-NW2EdR3XM",
@@ -28,11 +30,14 @@ export const firebaseAuthConfig = {
     declarations: [
         AppComponent,
         HomeComponent,
-        AdminComponent
+        AdminComponent,
+        ExperiencesComponent,
+        ExperienceFormComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
