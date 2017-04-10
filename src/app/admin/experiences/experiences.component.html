@@ -1,17 +1,12 @@
 <md-list>
     <h3 md-subheader>Folders</h3>
     <md-list-item *ngFor="let experience of experiences | async">
-        <md-icon md-list-avatar>folder</md-icon>
-        <h4 md-line>{{experience.name}}</h4>
-        <p md-line>
-            {{experience.startDate | date}} - {{experience.endDate | date}}
-            <button (click)="edit(experience)">edit</button>
-            <button (click)="delete(experience)">delete</button>
-        </p>
-        <span *ngIf="isSelected(experience)">Edited</span>
+        {{experience.startDate | date}} - {{experience.endDate | date}}
+        <button md-icon-button (click)="edit(experience)"><md-icon>edit</md-icon></button>
+        <button md-icon-button (click)="delete(experience)"><md-icon>delete</md-icon></button>
     </md-list-item>
 </md-list>
 
-<button (click)="new()">new</button>
+<button md-fab (click)="new()" class="fixed-fab-button"><md-icon>add</md-icon></button>
 
 <app-experience-form *ngIf="experience" [experience]="experience" (formSubmitted)="save($event)"></app-experience-form>

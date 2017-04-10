@@ -1,0 +1,7 @@
+<form (ngSubmit)="submit()" [formGroup]="categoryForm">
+    <md-input-container class="example-full-width">
+        <input mdInput type="text" formControlName="name" />
+    </md-input-container>
+        <md-slider min="0" max="10" step="1" formControlName="value"></md-slider>
+    <button type="submit" [disabled]="categoryForm.invalid">Save</button>
+</form>

@@ -1,5 +1,17 @@
 <md-toolbar color="primary">
-  <span>First Row</span>
+    <span>First Row</span>
 </md-toolbar>
 
-<app-experiences></app-experiences>
+<nav md-tab-nav-bar>
+    <a
+    *ngFor="let link of links"
+    md-tab-link
+    [routerLink]="link.link"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive">
+        {{ link.label }}
+    </a>
+</nav>
+
+<router-outlet></router-outlet>

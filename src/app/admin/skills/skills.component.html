@@ -1,0 +1,12 @@
+<md-list>
+    <h3 md-subheader>Folders</h3>
+    <md-list-item *ngFor="let skill of skills | async">
+        {{skill.name}} - {{skill.value}}
+        <button md-icon-button (click)="edit(skill)"><md-icon>edit</md-icon></button>
+        <button md-icon-button (click)="delete(skill)"><md-icon>delete</md-icon></button>
+    </md-list-item>
+</md-list>
+
+<button md-fab (click)="new()" class="fixed-fab-button"><md-icon>add</md-icon></button>
+
+<app-skill-form *ngIf="skill" [skill]="skill" (formSubmitted)="save($event)"></app-skill-form>

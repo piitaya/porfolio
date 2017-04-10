@@ -7,8 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+    links: any[] = [];
+
     constructor(
     ) {
+        this.links = [{
+            label: "Experiences",
+            link: ['experiences']
+        }, {
+            label: "Skills",
+            link: ['skills']
+        }, {
+            label: "Categories",
+            link: ['categories']
+        }];
     }
 
     ngOnInit() {
